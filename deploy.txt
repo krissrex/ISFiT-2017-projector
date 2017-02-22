@@ -1,0 +1,37 @@
+cd admin
+npm run build
+cd dist
+mv index.html admin.html
+tar cvf admin.tar *
+
+cd ../../frontend
+npm run build
+cd dist
+tar cvf frontend.tar *
+
+cd ../../server
+tar cvf server.tar --exclude='node_modules' --exclude='debug.log' *
+
+
+cd ../
+mv admin/dist/admin.tar ./
+mv frontend/dist/frontend.tar ./
+mv server/server.tar ./
+
+# isfit is set in ~/.ssh/config
+scp admin.tar dist.tar server.tar isfit:~/
+
+## First time setup for the server:
+# ssh isfit
+# sudo mkdir -p /var/www/node
+# cd /var/www/node
+# sudo tar -xvf ~/server.tar
+# sudo npm install
+## If you use pm2, run index.js
+# pm2 start index
+
+## To deploy/update frontend files on the server:
+# ssh isfit
+# cd /var/www/node/public
+# sudo tar -xvf ~/dist.tar
+# sudo tar -xvf ~/admin.tar

@@ -1,0 +1,6 @@
+*.tar
+**/node_modules
+/server/tokens.prod.js
+/frontend/dist/
+/admin/dist/
+**/debug.log

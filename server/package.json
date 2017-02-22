@@ -1,0 +1,12 @@
+{
+  "name": "isfit-server",
+  "private": true,
+  "dependencies": {
+    "colors": "^1.1.2",
+    "express": "^4.14.1",
+    "instagram-node": "^0.5.8",
+    "node-tweet-stream": "^2.0.1",
+    "socket.io": "^1.7.2",
+    "twitter-node-client": "0.0.6"
+  }
+}
