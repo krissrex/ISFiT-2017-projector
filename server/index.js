@@ -23,7 +23,7 @@ app.get('/admin', function(req, res) {
 })
 
 const PORT = 80
-server.listen(80)
+server.listen(PORT)
 console.log('Listening on port ' + PORT)
 
 
